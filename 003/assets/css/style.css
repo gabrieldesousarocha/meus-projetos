@@ -1,22 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap%27');
 :root {
-    --color1: black;
-    --color2: white;
-    --colorshadow: rgba(0, 0, 0, 0.726);
-    --rgbcolor: rgb(26, 27, 29);
+    /*? Cores */
+    --cor1: rgb(0, 0, 0);
+    --cor2: white;
+    --CorSombra: rgba(0, 0, 0, 0.671);
+    --corDoGabriel: rgb(26, 27, 29);
 
+    /*? Cores da paleta */
+    --corPaleta1: #FFE5D9;
+    --corPaleta2: #FEC89A;
+    --corPaleta3: #EFF6E0;
+    --corPaleta4: #B3DEE2;
+
+    /*? Fontes */
     --fonteTitulo: 'JetBrains Mono', monospace;
-
-    /*cores da paleta*/
-    --colorPaleta1: #FFE5D9;
-    --colorPaleta2: #FEC89A;
-    --colorPaleta3: #EFF6E0;
-    --colorPaleta4: #B3DEE2;
 }
 
-
 * {
-    font-family: var(--fonteTitulo);  
+    font-family: var(--fonteTitulo);
     margin: 0px;
     padding: 0px;
     list-style: none;
@@ -27,11 +28,12 @@ nav {
     width: 90%;
     height: auto;
     margin: auto;
-    padding: 72px 20px ; 
+    padding: 72px 20px; 
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: var(--fontetitulo);
+    position: relative;
 }
 
 ul {
@@ -39,7 +41,10 @@ ul {
     width: 400px;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    right: 0px;
 }
+
 ul > li {
     cursor: pointer;
 }
@@ -47,15 +52,11 @@ ul > li {
 button {
     padding: 10px;
     border-radius: 20px;
-    border: 1px solid var(--color1);
+    border: 1px solid var(--cor1);
     background-color: transparent;
     cursor: pointer;
     display: flex;
     align-items: center;
-}
-
-ul > button > img {
-    margin-right: 6px;
 }
 
 button#btnMenu {
@@ -63,11 +64,38 @@ button#btnMenu {
     z-index: 1;
 }
 
-main > section#parte1 {
-    max-width: 400px;        
-    min-width: 320px;
+ul > button > img {
+    margin-right: 6px;
 }
 
+section#redesSociais {
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    z-index: 2;
+    background-color: var(--CorSombra);
+}
+
+section#redesSociais > div {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--cor2);
+}
+
+section#redesSociais > div > a > img {
+    width: 50px;
+}
+
+/*! Main -- */
 main {
     width: 90%;
     margin: auto;
@@ -76,21 +104,9 @@ main {
     align-items: center;
 }
 
-main > section > h1{
-    font-size: 30px;
-}
-
-p {
-    text-indent: 10px ;
-}
-
-main {
-    width: 90%;
-    margin: auto;
-}
-
 main > section#parte1 {
     max-width: 400px;
+    min-width: 320px;
 }
 
 main > section#parte1 > h1 {
@@ -102,7 +118,7 @@ main > section#parte1 > p#paletas {
     display: flex;
     margin: 50px 0px;
     padding: 10px;
-    box-shadow: 10px;
+    justify-content: space-between;
 }
 
 main > section#parte1 > p > span {
@@ -110,73 +126,58 @@ main > section#parte1 > p > span {
     height: 56px;
     border-radius: 50%;
     display: block;
-    margin-right: 42px; 
-    box-shadow: 0px 2px  5px var(--colorshadow);
+    box-shadow: 0px 2px 5px var(--CorSombra);
 }
 
 main > section#parte1 > p > span#span1 {
-   background-color: var(--colorPaleta1);   
+    background-color: var(--corPaleta1);
 }
 
 main > section#parte1 > p > span#span2 {
-    background-color: var(--colorPaleta2);
+    background-color: var(--corPaleta2);
 }
 
 main > section#parte1 > p > span#span3 {
-    background-color: var(--colorPaleta3);
+    background-color: var(--corPaleta3);
 }
 
 main > section#parte1 > p > span#span4 {
-    background-color: var(--colorPaleta4);
+    background-color: var(--corPaleta4);
 }
-/* respoinsividade */
 
 @media screen and (max-width: 1045px) {
-    main{
-        display: block;
-        width: 100%;
-        padding-bottom: 600px;
+    main {
+        display: block; 
+        width: 100%; 
+        padding-bottom: 600px; 
+    }
+
+    section#parte1,  section#parte2 {
+        margin-left: 50%;
+        transform: translate(-50%);
+        text-align: center; 
     }
 
     section#parte2 {
-        top: 800px;
+        top: 600px;  
         position: absolute;
-        margin-left: 50%;
+        margin-left: 52%;
         transform: translate(-50%);
-        text-align: center;
-    }
-
-    section#parte1 {
-        bottom: 0px;
-        margin-left: 50%;
-        transform: translate(-50%);
-        position: absolute;
     }
 
     section#parte2 {
         width: 100%;
-    }
-
-    section#parte2 > img {
-    margin: auto;
-    display: block;
-    }
-
-    main > section#parte1 > p#paletas {
-        display: flex;
-        margin: 50px 0px;
-        padding: 10px;
-        justify-content: space-between;
     }
 
     section#parte2 > img {
         margin: auto;
         display: block;
     }
-
 }
 
+/*? Copiar lição de casa */
 @media screen and (max-width: 700px) {
+    /*? Vamos resolver o menu, que esta quebrando */
     button#btnMenu {
         display: block;
     }
@@ -189,7 +190,7 @@ main > section#parte1 > p > span#span4 {
         left: 0px;
         z-index: 2;
         padding: 20px 10px;
-        background-color: var(--color2);
+        background-color: var(--cor2);
         display: none;
     }
 
@@ -198,8 +199,8 @@ main > section#parte1 > p > span#span4 {
         top: 0px;
         left: 0px;
         width: 100%;
-        height: 100vh;
-        background-color: var(--colorshadow);
+        height: 100vh; 
+        background-color: var(--CorSombra);
         z-index: 1;
         display: none;
     }
@@ -210,16 +211,24 @@ main > section#parte1 > p > span#span4 {
 
     nav > ul > button {
         border: none;
+        font-size: 16px;
+        font-family: var(--fonteTitulo);
+        padding: 0px;
+    }
+
+    nav > ul > button > img {
+        display: none;
     }
 
     nav > p {
         display: none;
     }
+
 }
 
-@media screen and (max-width: 545px){
+@media screen and (max-width: 545px) {
+    /*? é pra diminuir a img quando chegar em 545px*/
     section#parte2 > img {
         width: 400px;
     }
 }
-

@@ -26,5 +26,15 @@ setInterval(() => {
 
     } else if(tamanhoTela < 700 && el != 'btnMenu') {
         ul.style.display = 'none'
+        fundo.style.display = 'none'
     }
 }, 10)
+
+var redesSociais = document.getElementById('redesSociais')
+function abrirRedesSociais() {
+    redesSociais.style.display = 'flex'
+}
+
+redesSociais.addEventListener('click', () => {
+    redesSociais.style.display = 'none'
+})
